@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--bean 注入-->
+    <bean id="dog1" class="com.spring.entity.Dag">
+        <property name="name" value="旺财"></property>
+    </bean>
+    <bean id="person1" class="com.spring.entity.Person">
+        <property name="name" value="张三"></property>
+        <property name="age" value="11"></property>
+        <property name="dag" ref="dog1"></property>
+    </bean>
+
+    <!-- bean 注入 + :p -->
+    <bean id="dog2" class="com.spring.entity.Dag" p:name="旺财啊" ></bean>
+    <bean id="person2" class="com.spring.entity.Person">
+        <property name="name" value="张三"></property>
+        <property name="age" value="11"></property>
+        <property name="dag" ref="dog2"></property>
+    </bean>
+
+    <!--内部bean 注入-->
+    <bean id="person3" class="com.spring.entity.Person">
+        <property name="name" value="张三"></property>
+        <property name="age" value="11"></property>
+        <property name="dag" >
+            <bean id="dag" class="com.spring.entity.Dag" p:name="小花"></bean>
+        </property>
+    </bean>
+
+    <!--null 注入-->
+    <bean id="person4" class="com.spring.entity.Person">
+        <property name="name" value="张三"></property>
+        <property name="age" value="11"></property>
+        <property name="dag" >
+           <null></null>
+        </property>
+    </bean>
+
+    <!--联级注入-->
+    <bean id="person5" class="com.spring.entity.Person">
+        <property name="name" value="张三"></property>
+        <property name="age" value="11"></property>
+        <property name="dag.name" value="花猪" ></property>
+    </bean>
+
+    <!--集合注入 list-->
+    <bean id="person6" class="com.spring.entity.Person">
+        <property name="name" value="张三"></property>
+        <property name="age" value="11"></property>
+        <property name="addr" >
+            <list>
+                <value>山西太原</value>
+                <value>山西大同</value>
+                <value>山西临汾</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--集合注入 list-->
+    <bean id="person7" class="com.spring.entity.Person">
+        <property name="name" value="张三"></property>
+        <property name="age" value="11"></property>
+        <property name="love" >
+            <set>
+                <value>山西太原</value>
+                <value>山西大同</value>
+                <value>山西临汾</value>
+            </set>
+        </property>
+    </bean>
+
+    <!--集合注入 list-->
+    <bean id="person8" class="com.spring.entity.Person">
+        <property name="name" value="张三"></property>
+        <property name="age" value="11"></property>
+        <property name="adds" >
+            <map>
+                <entry>
+                    <key><value>山西</value></key>
+                    <value>太原</value>
+                </entry>
+                <entry>
+                    <key><value>山西</value></key>
+                    <value>临汾</value>
+                </entry>
+                <entry>
+                    <key><value>山东</value></key>
+                    <value>青岛</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="person9" class="com.spring.entity.Person">
+        <property name="name" value="张三"></property>
+        <property name="age" value="11"></property>
+        <property name="properties" >
+            <props>
+                <prop key="西瓜" >水果</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
