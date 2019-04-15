@@ -62,7 +62,7 @@
         </property>
     </bean>
 
-    <!--集合注入 list-->
+    <!--集合注入 set-->
     <bean id="person7" class="com.spring.entity.Person">
         <property name="name" value="张三"></property>
         <property name="age" value="11"></property>
@@ -75,7 +75,7 @@
         </property>
     </bean>
 
-    <!--集合注入 list-->
+    <!--集合注入 map-->
     <bean id="person8" class="com.spring.entity.Person">
         <property name="name" value="张三"></property>
         <property name="age" value="11"></property>
@@ -97,7 +97,7 @@
         </property>
     </bean>
 
-
+    <!-- 集合注入 properties  -->
     <bean id="person9" class="com.spring.entity.Person">
         <property name="name" value="张三"></property>
         <property name="age" value="11"></property>
